@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Project</title>
+</head>
+
+<body>
+    <header>
+        <h1>
+            Welcome to My GeeksforGeeks
+        </h1>
+    </header>
+    <main>
+        <div class="node-mcu esp8266 node mcu">
+    <h1 style="text-align: center; color: #2980B9;">NodeMCU and ESP8266 Boards</h1>
+
+    <h2 style="color: #2980B9;">Introduction</h2>
+    <p>NodeMCU is an open-source firmware and development kit based on the ESP8266 Wi-Fi SoC. It provides an interactive environment for building IoT applications.</p>
+
+    <h2 style="color: #2980B9;">Key Features</h2>
+    <ul>
+        <li>Low Cost</li>
+        <li>Wi-Fi Connectivity</li>
+        <li>Programming Language (Lua/Arduino IDE)</li>
+        <li>GPIO Pins</li>
+        <li>Development Boards with USB interfaces</li>
+    </ul>
+
+    <h2 style="color: #2980B9;">Applications</h2>
+    <ul>
+        <li>Home Automation</li>
+        <li>Weather Stations</li>
+        <li>Smart Agriculture</li>
+        <li>IoT Projects</li>
+    </ul>
+
+    <h2 style="color: #2980B9;">Code Example</h2>
+    <pre style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; overflow: auto; border-radius: 5px;">
+#include &lt;ESP8266WiFi.h&gt;
+
+const char* ssid = "your_SSID";     // Your Wi-Fi SSID
+const char* password = "your_PASSWORD"; // Your Wi-Fi password
+
+void setup() {
+    Serial.begin(115200);
+    pinMode(LED_BUILTIN, OUTPUT); // Initialize the built-in LED pin
+
+    // Connect to Wi-Fi
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(1000);
+        Serial.println("Connecting to WiFi...");
+    }
+    Serial.println("Connected to WiFi");
+}
+
+void loop() {
+    digitalWrite(LED_BUILTIN, HIGH); // Turn the LED on
+    delay(1000);                      // Wait for a second
+    digitalWrite(LED_BUILTIN, LOW);  // Turn the LED off
+    delay(1000);   }                   // Wait for a second
+    </pre>
+<h1 style="text-align: left; color: #2980B9;">NodeMCU and ESP8266 Overview</h1>
+
+    <h2 style="color: #2980B9;text-align:left;">What is NodeMCU?</h2>
+    <p>
+        NodeMCU is an open-source firmware and development kit built on the ESP8266 Wi-Fi System-on-Chip (SoC) by Espressif Systems. 
+        It allows developers to create Internet of Things (IoT) applications easily and efficiently by combining hardware and software into a cohesive platform.
+        <h3 style="text-align:left;">NodeMCU and ESP8266 in IoT Applications</h3>
+        NodeMCU is a development platform based on the ESP8266 Wi-Fi chip, specifically designed for Internet of Things (IoT) applications. The combination of the NodeMCU development board and the ESP8266 chip offers a flexible and cost-effective solution for building smart devices that connect to the internet.</p>
+
+    <h2 style="color: #2980B9;">ESP8266 Wi-Fi System-on-Chip (SoC)</h2>
+    
+    <h3 style="color: #2980B9;">1. Architecture of ESP8266</h3>
+    <ul>
+        <li><strong>Microcontroller:</strong> A 32-bit RISC CPU running at 80 MHz (up to 160 MHz) with 160 KB of SRAM and up to 16 MB of external flash memory.</li>
+        <li><strong>Wi-Fi Module:</strong> Built-in support for IEEE 802.11 b/g/n protocols for easy network connectivity.</li>
+        <li><strong>Peripheral Interfaces:</strong> GPIO pins, PWM, ADC, I2C, and SPI for connecting sensors and actuators.</li>
+        <li><strong>Power Management:</strong> Supports various power modes, including deep sleep, for battery-operated applications.</li>
+    </ul>
+
+    <h3 style="color: #2980B9;">2. Key Features of NodeMCU and ESP8266</h3>
+    <ul>
+        <li><strong>Low Cost:</strong> Economical solution for IoT projects.</li>
+        <li><strong>Easy to Program:</strong> Can be programmed in Lua or Arduino IDE.</li>
+        <li><strong>Built-in Libraries:</strong> Includes libraries for handling Wi-Fi, HTTP, MQTT, and GPIO.</li>
+        <li><strong>Community Support:</strong> Large community sharing libraries, projects, and tutorials.</li>
+    </ul>
+
+    <h3 style="color: #2980B9;">3. Benefits of Using NodeMCU with ESP8266</h3>
+    <ul>
+        <li><strong>Rapid Development:</strong> Accelerates IoT application development.</li>
+        <li><strong>Versatile Connectivity:</strong> Easy internet connection for data transmission.</li>
+        <li><strong>Scalability:</strong> Handles multiple connections and tasks efficiently.</li>
+        <li><strong>Integration with Cloud Services:</strong> Connects to cloud platforms for data storage and analytics.</li>
+    </ul>
+
+    <h2 style="color: #2980B9;">Applications of NodeMCU and ESP8266</h2>
+    <ul>
+        <li><strong>Home Automation:</strong> Remote control of lights and appliances.</li>
+        <li><strong>Environmental Monitoring:</strong> Collecting data on temperature, humidity, etc.</li>
+        <li><strong>Smart Cities:</strong> Monitoring traffic, parking, and public transportation.</li>
+        <li><strong>Health Monitoring:</strong> Developing wearable devices and remote patient monitoring.</li>
+        <li><strong>Education and Prototyping:</strong> Teaching tool for electronics and programming.</li>
+    </ul>
+
+    <h2 style="color: #2980B9;">Example Use Case: Smart Home Lighting Control</h2>
+    <p><strong>Objective:</strong> Create a smart lighting system that can be controlled remotely.</p>
+    
+    <h3 style="color: #2980B9;">Components:</h3>
+    <ul>
+        <li>NodeMCU board</li>
+        <li>Relay module (to control the light)</li>
+        <li>LED or actual light bulb</li>
+        <li>Smartphone with a web application</li>
+    </ul>
+
+    <h3 style="color: #2980B9;">Implementation:</h3>
+    <ol>
+        <li><strong>Wiring:</strong> Connect the relay module to the NodeMCU and the light source.</li>
+        <li><strong>Programming:</strong> Use NodeMCU firmware to create a web server for controlling the light.</li>
+        <li><strong>Access:</strong> Use the NodeMCU’s IP address to control the light from a smartphone or computer.</li>
+    </ol>
+
+    <h3 style="color: #2980B9;">Sample Code:</h3>
+    <pre style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; overflow: auto;">
+#include &lt;ESP8266WiFi.h&gt;
+
+const char* ssid = "your_SSID";     // Your Wi-Fi SSID
+const char* password = "your_PASSWORD"; // Your Wi-Fi password
+
+void setup() {
+    Serial.begin(115200);
+    pinMode(LED_BUILTIN, OUTPUT); // Initialize the built-in LED pin
+
+    // Connect to Wi-Fi
+    WiFi.begin(ssid, password);
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(1000);
+        Serial.println("Connecting to WiFi...");
+    }
+    Serial.println("Connected to WiFi");
+}
+
+void loop() {
+    digitalWrite(LED_BUILTIN, HIGH); // Turn the LED on
+    delay(1000);                      // Wait for a second
+    digitalWrite(LED_BUILTIN, LOW);  // Turn the LED off
+    delay(1000);  }                    // Wait for a second
+    </pre>
+
+    <h2 style="color: #2980B9;">Conclusion</h2>
+    <p>
+        NodeMCU and the ESP8266 Wi-Fi SoC are powerful tools for developing IoT applications. Their combination of low cost, 
+        ease of use, and extensive community support makes them an excellent choice for both hobbyists and professional developers. 
+        With applications spanning home automation, environmental monitoring, and beyond, NodeMCU continues to play a crucial role in the rapidly evolving world of IoT technology.
+    </p>
+    <div class="esp8266" style="font-family: Arial, sans-serif; line-height: 1.6; margin: 20px; color: #333;">
+
+        <h1 style="text-align: center; color: #2980B9;">What is NodeMCU?</h1>
+        <p>
+            <strong>NodeMCU</strong> is an open-source firmware and development kit based on the ESP8266 Wi-Fi System-on-Chip (SoC) 
+            from Espressif Systems. It allows developers to create Internet of Things (IoT) applications easily and efficiently. 
+            The primary features and aspects of NodeMCU include:
+        </p>
+    
+        <h2 style="color: #2980B9;">Key Features:</h2>
+        <ol>
+            <li>
+                <strong>Wi-Fi Connectivity:</strong>
+                <p>The ESP8266 chip comes with built-in Wi-Fi capabilities, allowing devices to connect to the internet wirelessly.</p>
+            </li>
+            <li>
+                <strong>Programming Language:</strong>
+                <p>NodeMCU is primarily programmed using <strong>Lua</strong>, a lightweight scripting language. However, it can also be programmed using the <strong>Arduino IDE</strong>, making it accessible to a broader range of developers.</p>
+            </li>
+            <li>
+                <strong>Development Board:</strong>
+                <p>NodeMCU is available in various development boards that come with the ESP8266 chip, USB interfaces for power and programming, and GPIO (General Purpose Input/Output) pins for connecting various sensors and actuators.</p>
+            </li>
+            <li>
+                <strong>Microcontroller Features:</strong>
+                <p>It integrates various peripherals, including PWM (Pulse Width Modulation), ADC (Analog to Digital Converter), I2C, SPI, and more, enabling complex applications.</p>
+            </li>
+            <li>
+                <strong>Open Source:</strong>
+                <p>Being an open-source platform allows developers to modify and share the firmware and libraries, fostering a community-driven development approach.</p>
+            </li>
+            <li>
+                <strong>Built-in Functions:</strong>
+                <p>NodeMCU firmware includes several built-in libraries that simplify tasks like HTTP requests, MQTT, and GPIO handling, making it easier to develop IoT applications.</p>
+            </li>
+        </ol>
+    
+        <h2 style="color: #2980B9;">Applications:</h2>
+        <ul>
+            <li><strong>Home Automation:</strong> Control lights, fans, and other appliances remotely using smartphones or voice assistants.</li>
+            <li><strong>Weather Stations:</strong> Collect data such as temperature, humidity, and atmospheric pressure and upload it to the cloud.</li>
+            <li><strong>Smart Agriculture:</strong> Monitor soil moisture and environmental conditions to optimize farming practices.</li>
+            <li><strong>IoT Projects:</strong> Build prototypes for various IoT applications, including smart devices and sensors.</li>
+        </ul>
+    
+        <h2 style="color: #2980B9;">Example Use Case:</h2>
+        <p>Here's a simple example of how NodeMCU can be used to create a web server that controls an LED. This project involves connecting an LED to one of the GPIO pins and using NodeMCU to create a web interface for turning the LED on and off.</p>
+    
+        <h3 style="color: #2980B9;">NodeMCU Code Example:</h3>
+        <pre style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; overflow: auto;">
+    -- NodeMCU code example
+    wifi.setmode(wifi.STATION)
+    wifi.connect("your_SSID", "your_PASSWORD")
+    
+    srv = net.createServer(net.TCP)
+    srv:listen(80, function(conn)
+        conn:on("receive", function(sck, req)
+            local _, _, method, path = string.find(req, "([A-Z]+) (.+)")
+            if path == "/LED=ON" then
+                gpio.write(1, gpio.HIGH) -- Turn LED on
+                sck:send("LED is ON")
+            elseif path == "/LED=OFF" then
+                gpio.write(1, gpio.LOW) -- Turn LED off
+                sck:send("LED is OFF")
+            else
+                sck:send("Invalid request")
+            end
+        end)
+    end)
+        </pre>
+     <h1 style="text-align: center; color: #2980B9;">NodeMCU and ESP8266 in IoT</h1>
+        
+            <h2 style="color: #2980B9;">What is IoT?</h2>
+            <p>
+                The <strong>Internet of Things (IoT)</strong> refers to the network of physical objects (or "things") embedded with sensors, 
+                software, and other technologies that enable them to connect and exchange data with other devices over the internet. 
+                This connectivity allows for remote monitoring and control, data collection, and enhanced functionality.
+            </p>
+        
+            <h2 style="color: #2980B9;">Key Features of NodeMCU and ESP8266 in IoT</h2>
+            <ol>
+                <li>
+                    <strong>Low-Cost Hardware:</strong>
+                    <p>The NodeMCU board and ESP8266 chip are inexpensive, making them accessible for hobbyists and developers to prototype and develop IoT solutions.</p>
+                </li>
+                <li>
+                    <strong>Wi-Fi Connectivity:</strong>
+                    <p>The ESP8266 includes built-in Wi-Fi capabilities, enabling easy and reliable internet access for IoT devices without additional components.</p>
+                </li>
+                <li>
+                    <strong>Ease of Programming:</strong>
+                    <p>NodeMCU can be programmed using Lua or the Arduino IDE, which is familiar to many developers, allowing quick and efficient development of IoT applications.</p>
+                </li>
+                <li>
+                    <strong>GPIO Pins:</strong>
+                    <p>The NodeMCU board features multiple GPIO pins for connecting various sensors and actuators, facilitating the integration of physical devices with software.</p>
+                </li>
+                <li>
+                    <strong>Community and Resources:</strong>
+                    <p>Being an open-source platform, there is a vast community of developers sharing libraries, tutorials, and project ideas, which helps in rapid development and troubleshooting.</p>
+                </li>
+            </ol>
+        
+            <h2 style="color: #2980B9;">Common Use Cases in IoT</h2>
+            <ol>
+                <li>
+                    <strong>Smart Home Automation:</strong>
+                    <p>
+                        <strong>Example:</strong> Controlling home appliances (like lights, fans, and thermostats) remotely using a smartphone application.<br>
+                        <strong>Implementation:</strong> Use NodeMCU to create a web server that listens for commands from a mobile app to toggle devices on or off.
+                    </p>
+                </li>
+                <li>
+                    <strong>Environmental Monitoring:</strong>
+                    <p>
+                        <strong>Example:</strong> Building a weather station to collect data such as temperature, humidity, and air quality.<br>
+                        <strong>Implementation:</strong> Connect sensors to the NodeMCU to gather data and send it to a cloud platform for storage and analysis.
+                    </p>
+                </li>
+                <li>
+                    <strong>Smart Agriculture:</strong>
+                    <p>
+                        <strong>Example:</strong> Monitoring soil moisture levels and weather conditions to optimize irrigation.<br>
+                        <strong>Implementation:</strong> Use soil moisture sensors connected to NodeMCU, sending alerts to farmers when watering is necessary.
+                    </p>
+                </li>
+                <li>
+                    <strong>Health Monitoring:</strong>
+                    <p>
+                        <strong>Example:</strong> Creating wearable devices that monitor health metrics (like heart rate or activity levels).<br>
+                        <strong>Implementation:</strong> Use NodeMCU to collect data from health sensors and transmit it to healthcare providers for analysis.
+                    </p>
+                </li>
+                <li>
+                    <strong>IoT Prototyping:</strong>
+                    <p>
+                        <strong>Example:</strong> Rapidly prototyping new IoT devices and applications for testing and development.<br>
+                        <strong>Implementation:</strong> Use NodeMCU as a base to build proof-of-concept devices, allowing for quick iterations based on feedback.
+                    </p>
+                </li>
+            </ol>
+        
+            <h2 style="color: #2980B9;">Example Project: Smart Plant Watering System</h2>
+            <p><strong>Objective:</strong> Automatically water plants based on soil moisture levels.</p>
+        
+            <h3 style="color: #2980B9;">Components Needed:</h3>
+            <ul>
+                <li>NodeMCU board</li>
+                <li>Soil moisture sensor</li>
+                <li>Water pump</li>
+                <li>Relay module</li>
+                <li>Power supply</li>
+                <li>Tubing for watering</li>
+                <li>Smartphone or web application for monitoring</li>
+            </ul>
+        
+            <h3 style="color: #2980B9;">Implementation Steps:</h3>
+            <ol>
+                <li>
+                    <strong>Wiring:</strong>
+                    <p>Connect the soil moisture sensor to an analog input pin on the NodeMCU. Connect the relay module to a digital output pin to control the water pump.</p>
+                </li>
+                <li>
+                    <strong>Programming:</strong>
+                    <p>Write a program to read the soil moisture level. If it falls below a certain threshold, activate the water pump.</p>
+                </li>
+                <li>
+                    <strong>Cloud Integration:</strong>
+                    <p>Optionally, send moisture data to a cloud platform for logging and remote monitoring.</p>
+                </li>
+                <li>
+                    <strong>User Interface:</strong>
+                    <p>Develop a simple web interface to display moisture levels and control the pump manually if needed.</p>
+                </li>
+            </ol>
+        
+            <h3 style="color: #2980B9;">Sample Code:</h3>
+            <pre style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; overflow: auto;">
+        -- Constants
+        local soilMoisturePin = A0 -- Analog pin for soil moisture sensor
+        local pumpPin = 4           -- Digital pin for water pump relay
+        
+        -- Set up
+        gpio.mode(pumpPin, gpio.OUTPUT)
+        
+        function checkSoilMoisture()
+            local moistureLevel = adc.read(soilMoisturePin) -- Read moisture level
+            if moistureLevel < 300 then -- Adjust threshold as necessary
+                gpio.write(pumpPin, gpio.HIGH) -- Activate pump
+                print("Watering the plants!")
+            else
+                gpio.write(pumpPin, gpio.LOW) -- Deactivate pump
+                print("Soil moisture is sufficient.")
+            end
+        end
+        
+        -- Main loop
+        tmr.create():alarm(60000, tmr.ALARM_AUTO, checkSoilMoisture) -- Check every minute
+            </pre>
+        
+            <h2 style="color: #2980B9;">Conclusion</h2>
+            <p>
+                NodeMCU and the ESP8266 Wi-Fi SoC are essential tools in the realm of IoT. Their combination of affordability, versatility, and ease of use empowers developers to create a wide range of innovative applications, 
+                from simple automation projects to complex monitoring systems. With the growing demand for IoT solutions, the ability to quickly prototype and deploy connected devices using NodeMCU makes it a popular choice for both hobbyists and professionals.
+            </p>
+        
+            <p>
+                Whether it's in smart homes, agriculture, healthcare, or environmental monitoring, NodeMCU continues to play a pivotal role in advancing the capabilities of IoT technologies.
+            </p>
+         <h1 style="text-align: center; color: #2980B9;">NodeMCU and ESP8266 Projects</h1>
+            
+                <h2 style="color: #2980B9;">Project 1: Smart Home Automation System</h2>
+                <h3 style="color: #2980B9;">Overview</h3>
+                <p>
+                    This project allows users to control various home appliances such as lights, fans, and heaters remotely via a web interface 
+                    or a mobile application. The NodeMCU serves as the central controller, connecting to multiple relays that control the appliances.
+                </p>
+                
+                <h3 style="color: #2980B9;">Components Required</h3>
+                <ul>
+                    <li>NodeMCU (ESP8266)</li>
+                    <li>Relay Module (at least 4-channel)</li>
+                    <li>Jumper Wires</li>
+                    <li>Breadboard</li>
+                    <li>Home appliances (like LED lights)</li>
+                    <li>Power supply</li>
+                </ul>
+            
+                <h3 style="color: #2980B9;">Implementation Steps</h3>
+                <ol>
+                    <li><strong>Wiring:</strong> Connect the relay module to the NodeMCU and appliances.</li>
+                    <li><strong>Set Up the Development Environment:</strong> Install the Arduino IDE and add support for NodeMCU.</li>
+                    <li><strong>Programming the NodeMCU:</strong> Write code to connect to Wi-Fi and set up a web server.</li>
+                    <li><strong>Creating a Web Interface:</strong> Develop an HTML page with buttons for each appliance.</li>
+                    <li><strong>Testing:</strong> Upload the code and verify appliance control through the web interface.</li>
+                </ol>
+            
+                <h3 style="color: #2980B9;">Sample Code</h3>
+                <pre style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; overflow: auto;">
+            #include <ESP8266WiFi.h>
+            
+            const char* ssid = "your_SSID";
+            const char* password = "your_PASSWORD";
+            
+            WiFiServer server(80);
+            
+            const int relay1 = 5;
+            const int relay2 = 4;
+            
+            void setup() {
+                Serial.begin(115200);
+                pinMode(relay1, OUTPUT);
+                pinMode(relay2, OUTPUT);
+                digitalWrite(relay1, LOW);
+                digitalWrite(relay2, LOW);
+            
+                WiFi.begin(ssid, password);
+                while (WiFi.status() != WL_CONNECTED) {
+                    delay(1000);
+                    Serial.println("Connecting to WiFi...");
+                }
+                server.begin();
+            }
+            
+            void loop() {
+                WiFiClient client = server.available();
+                if (client) {
+                    String request = client.readStringUntil('\r');
+                    client.flush();
+            
+                    if (request.indexOf("/relay1=ON") != -1) {
+                        digitalWrite(relay1, HIGH);
+                    }
+                    if (request.indexOf("/relay1=OFF") != -1) {
+                        digitalWrite(relay1, LOW);
+                    }
+                    if (request.indexOf("/relay2=ON") != -1) {
+                        digitalWrite(relay2, HIGH);
+                    }
+                    if (request.indexOf("/relay2=OFF") != -1) {
+                        digitalWrite(relay2, LOW);
+                    }
+            
+                    client.println("HTTP/1.1 200 OK");
+                    client.println("Content-type:text/html");
+                    client.println();
+                    client.println("<!DOCTYPE HTML><html>");
+                    client.println("<h1>Smart Home Control</h1>");
+                    client.println("<p>Relay 1: <a href=\"/relay1=ON\">ON</a> <a href=\"/relay1=OFF\">OFF</a></p>");
+                    client.println("<p>Relay 2: <a href=\"/relay2=ON\">ON</a> <a href=\"/relay2=OFF\">OFF</a></p>");
+                    client.println("</html>");
+                    client.stop();
+                }
+            }
+                </pre>
+            
+                <h2 style="color: #2980B9;">Project 2: Weather Station</h2>
+                <h3 style="color: #2980B9;">Overview</h3>
+                <p>
+                    Create a weather station that collects and displays environmental data such as temperature, humidity, and atmospheric pressure. 
+                    This project uses various sensors connected to the NodeMCU to collect data, which is then uploaded to a cloud service for analysis and monitoring.
+                </p>
+                
+                <h3 style="color: #2980B9;">Components Required</h3>
+                <ul>
+                    <li>NodeMCU (ESP8266)</li>
+                    <li>DHT11/DHT22 sensor (for temperature and humidity)</li>
+                    <li>BMP180 sensor (for atmospheric pressure)</li>
+                    <li>Jumper wires</li>
+                    <li>Breadboard</li>
+                    <li>Power supply</li>
+                </ul>
+            
+                <h3 style="color: #2980B9;">Implementation Steps</h3>
+                <ol>
+                    <li><strong>Wiring:</strong> Connect the DHT sensor to a GPIO pin on the NodeMCU and the BMP180 sensor using I2C.</li>
+                    <li><strong>Set Up the Development Environment:</strong> Install the required libraries for the sensors.</li>
+                    <li><strong>Programming the NodeMCU:</strong> Write code to read data from the sensors and format it for transmission to a cloud platform.</li>
+                    <li><strong>Cloud Integration:</strong> Use an IoT platform like ThingSpeak to log and visualize the collected data.</li>
+                    <li><strong>Testing:</strong> Upload the code and verify that data is being sent to the cloud.</li>
+                </ol>
+            
+                <h3 style="color: #2980B9;">Sample Code</h3>
+                <pre style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; overflow: auto;">
+            #include <ESP8266WiFi.h>
+            #include <DHT.h>
+            
+            #define DHTPIN 2
+            #define DHTTYPE DHT11
+            
+            const char* ssid = "your_SSID";
+            const char* password = "your_PASSWORD";
+            const char* host = "api.thingspeak.com";
+            const char* apiKey = "your_API_KEY"; // Replace with your ThingSpeak Write API Key
+            
+            DHT dht(DHTPIN, DHTTYPE);
+            
+            void setup() {
+                Serial.begin(115200);
+                dht.begin();
+                WiFi.begin(ssid, password);
+                
+                while (WiFi.status() != WL_CONNECTED) {
+                    delay(1000);
+                    Serial.println("Connecting to WiFi...");
+                }
+                Serial.println("Connected to WiFi");
+            }
+            
+            void loop() {
+                float h = dht.readHumidity();
+                float t = dht.readTemperature();
+            
+                if (isnan(h) || isnan(t)) {
+                    Serial.println("Failed to read from DHT sensor!");
+                    return;
+                }
+            
+                WiFiClient client;
+                if (client.connect(host, 80)) {
+                    String url = String("/update?api_key=") + apiKey + "&field1=" + String(t) + "&field2=" + String(h);
+                    client.print(String("GET ") + url + " HTTP/1.1\r\n" +
+                                 "Host: " + host + "\r\n" +
+                                 "Connection: close\r\n\r\n");
+                    delay(2000);
+                }
+                delay(60000); // Send data every 60 seconds
+            }
+                </pre>
+            
+                <h2 style="color: #2980B9;">Project 3: Remote Controlled Car</h2>
+                <h3 style="color: #2980B9;">Overview</h3>
+                <p>
+                    This project involves building a remote-controlled car that can be controlled via a smartphone using Bluetooth. 
+                    The NodeMCU communicates with a motor driver to control the movement of the car.
+                </p>
+                
+                <h3 style="color: #2980B9;">Components Required</h3>
+                <ul>
+                    <li>NodeMCU (ESP8266)</li>
+                    <li>Motor Driver Module (e.g., L298N)</li>
+                    <li>DC Motors (2 or 4)</li>
+                    <li>Chassis Kit (for the robot car)</li>
+                    <li>Wheels</li>
+                    <li>Power supply (battery pack)</li>
+                    <li>Bluetooth Module (e.g., HC-05)</li>
+                    <li>Jumper wires</li>
+                </ul>
+            
+                <h3 style="color: #2980B9;">Implementation Steps</h3>
+                <ol>
+                    <li><strong>Wiring:</strong> Connect the motors to the motor driver and the motor driver to the NodeMCU. Connect the Bluetooth module.</li>
+                    <li><strong>Programming the NodeMCU:</strong> Write code to read commands from the Bluetooth module and translate them into motor movements.</li>
+                    <li><strong>Creating a Mobile App:</strong> Use a simple Bluetooth control app or create your own app to send commands to the NodeMCU.</li>
+                    <li><strong>Testing:</strong> Upload the code and test the car's movement based on commands from the app.</li>
+                </ol>
+            
+                <h3 style="color: #2980B9;">Sample Code</h3>
+                <pre style="background-color: #f9f9f9; border: 1px solid #ccc; padding: 10px; border-radius: 5px; overflow: auto;">
+            #include <SoftwareSerial.h>
+            
+            SoftwareSerial BTSerial(2, 3);
+            const int motorA1 = 5; // Motor A control pin 1
+            const int motorA2 = 4; // Motor A control pin 2
+            const int motorB1 = 0; // Motor B control pin 1
+            const int motorB2 = 14; // Motor B control pin 2
+            
+            void setup() {
+                Serial.begin(115200);
+                BTSerial.begin(9600);
+                pinMode(motorA1, OUTPUT);
+                pinMode(motorA2, OUTPUT);
+                pinMode(motorB1, OUTPUT);
+                pinMode(motorB2, OUTPUT);
+            }
+            
+            void loop() {
+                if (BTSerial.available()) {
+                    char command = BTSerial.read();
+                    switch (command) {
+                        case 'F': // Move forward
+                            digitalWrite(motorA1, HIGH);
+                            digitalWrite(motorA2, LOW);
+                            digitalWrite(motorB1, HIGH);
+                            digitalWrite(motorB2, LOW);
+                            break;
+                        case 'B': // Move backward
+                            digitalWrite(motorA1, LOW);
+                            digitalWrite(motorA2, HIGH);
+                            digitalWrite(motorB1, LOW);
+                            digitalWrite(motorB2, HIGH);
+                            break;
+                        case 'L': // Turn left
+                            digitalWrite(motorA1, LOW);
+                            digitalWrite(motorA2, HIGH);
+                            digitalWrite(motorB1, HIGH);
+                            digitalWrite(motorB2, LOW);
+                            break;
+                        case 'R': // Turn right
+                            digitalWrite(motorA1, HIGH);
+                            digitalWrite(motorA2, LOW);
+                            digitalWrite(motorB1, LOW);
+                            digitalWrite(motorB2, HIGH);
+                            break;
+                        case 'S': // Stop
+                            digitalWrite(motorA1, LOW);
+                            digitalWrite(motorA2, LOW);
+                            digitalWrite(motorB1, LOW);
+                            digitalWrite(motorB2, LOW);
+                            break;
+                    }
+                }
+            }
+         </pre>
+         <h2 style ="text-align:left;">ESP8266 Wi-Fi System-on-Chip (SoC)</h2><ol style="text-align:left;"><li>Architecture of ESP8266<ul><li>Microcontroller: The ESP8266 features a 32-bit RISC CPU running at 80 MHz (up to 160 MHz) with 160 KB of SRAM and up to 16 MB of external flash memory, allowing for versatile application development.</li><li>Wi-Fi Module: The built-in Wi-Fi supports IEEE 802.11 b/g/n protocols, enabling devices to connect to local networks and the internet without the need for additional hardware.</li><li>Peripheral Interfaces: The ESP8266 includes multiple GPIO pins, PWM, ADC (Analog to Digital Converter), I2C, and SPI interfaces for connecting various sensors, actuators, and other devices.</li><li>Power Management: It supports various power modes, including deep sleep, which significantly reduces power consumption, making it suitable for battery-operated IoT applications</li></ul></li><li>Key Features of NodeMCU and ESP8266<ul><li>Low Cost: The ESP8266 and associated NodeMCU boards are inexpensive, making them accessible for prototyping and commercial projects.</li><li>Easy to Program: NodeMCU can be programmed in Lua, a lightweight scripting language. It also supports the Arduino IDE, which allows developers familiar with Arduino to use their existing skills.</li><li>Built-in Libraries: NodeMCU comes with numerous built-in libraries for handling Wi-Fi connections, HTTP requests, MQTT messaging, and GPIO manipulation, simplifying the development process.</li><li>
+            Community Support: Being an open-source platform, NodeMCU has a vast community of developers who share libraries, projects, and tutorials, enhancing learning and development opportunities.</li></ul></li><li>Benefits of Using NodeMCU with ESP8266<ul><li>Rapid Development: The combination of easy programming and a wide range of libraries accelerates the development of IoT applications.</li><li>Versatile Connectivity: With built-in Wi-Fi, projects can easily connect to the internet for data transmission, cloud services, or remote control.</li><li>Scalability: NodeMCU can handle multiple connections and tasks, making it suitable for both small and large IoT deployments.</li><li>Integration with Cloud Services: NodeMCU can connect to cloud platforms (like AWS, Google Cloud, or Azure) for data storage, analytics, and remote monitoring, enhancing the capabilities of IoT solutions.</li></ul></li></ol>
+            <h2>Applications of NodeMCU and ESP8266</h2><ol><li>Home Automation:</li><ul><li>Control lighting, heating, and appliances remotely through a web interface or smartphone app.</li><li>Implement smart security systems with motion detectors and alerts.</li></ul><li>Environmental Monitoring:<ul><li>Create weather stations to collect data on temperature, humidity, and air quality.</li><li>Monitor soil moisture levels for agricultural applications.</li></ul></li><li>Smart Cities:<ul><li>Deploy sensors for monitoring traffic patterns, parking availability, and public transportation systems.</li><li>Implement smart waste management solutions that alert when bins are full.
+            </li></ul></li><li>Health Monitoring:<ul><li>Develop wearable devices that track health metrics and transmit data to healthcare providers.</li><li>Implement remote patient monitoring systems.</li></ul></li><li>Education and Prototyping:<ul><li>Serve as a teaching tool for students learning about electronics and programming.</li><li>Prototype IoT solutions for startups and individual projects.</li></ul></li></ol>
+        
+        </div>
+</div>
+</main>
+<footer>
+    <p>&copy; 2024 My Project</p>
+</footer>
+</body>
+</html>
